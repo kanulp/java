@@ -18,7 +18,7 @@ lbl_name=new JLabel("Name");
 lbl_event=new JLabel("Event Name");
 lbl_year=new JLabel("Year");
 
-txt_name=new JTextField(10);
+txt_name=new JTextField(30);
 txt_event=new JTextField(20);
 txt_year=new JTextField(20);
 
@@ -54,9 +54,9 @@ p3.add(btn_create);
 
 Container c=getContentPane();
 c.setLayout(null);
-p1.setBounds(20,20,300,40);
-p2.setBounds(10,80,200,320);
-p3.setBounds(10,400,300,80);
+p1.setBounds(20,20,250,40);
+p2.setBounds(10,80,200,120);
+p3.setBounds(10,200,300,40);
 
 c.add(p1);
 c.add(p2);
@@ -72,10 +72,8 @@ if(btn.equals("Create"))
 String s1=txt_name.getText();
 String s2=txt_event.getText();
 String s3=txt_year.getText();
-
-
-
-try{
+if(s1 != null && !s1.isEmpty() && s2 != null && !s2.isEmpty() && s3 != null && !s3.isEmpty() ){
+	try{
 Certi c = new Certi(s1,s2,s3);
 }
 catch(IOException e)
@@ -87,6 +85,11 @@ txt_name.setText("");
 txt_event.setText("");
 txt_year.setText("");
 
+	}
+
+else{
+	JOptionPane.showMessageDialog(null,"Plz Fill all info!");
+}
 }
 
 }
@@ -102,6 +105,6 @@ public void windowClosing(WindowEvent e)
 System.exit(0); 
 } 
 });
-stud.setSize(new Dimension(400,520));
+stud.setSize(new Dimension(300,300));
 }
 }
